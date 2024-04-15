@@ -26,6 +26,7 @@ export function Form() {
     console.log(new FormData(e.target).get('firstname2'));
   };
 
+  // virtual dom
   return (
     <>
       <hr></hr>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 export function useIncrement(initial = 10): {
   value: number;
@@ -7,8 +7,9 @@ export function useIncrement(initial = 10): {
 } {
   const [state, setState] = useState(initial);
 
-  const plus = () => setState((v) => v + 1);
-  const minus = () => setState((v) => v - 1);
+  // Optimisation avec le useCallback puis ce que la fonction ne change jamais
+  const plus = useCallback(() => setState((v) => v + 1), []);
+  const minus = useCallback(() => setState((v) => v - 1), []);
 
   return { value: state, plus, minus }; // compteur / fonction d'incrémentation / fonction de decrémentation
 }

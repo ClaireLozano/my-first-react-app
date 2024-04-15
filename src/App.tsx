@@ -1,6 +1,5 @@
 import { Fragment } from 'react/jsx-runtime';
 import './App.css';
-import { Counter } from './components/Counter';
 import { Form } from './components/Form';
 import { useState } from 'react';
 import { SimpleContent } from './components/SimpleContent';
@@ -10,6 +9,9 @@ import { Effect } from './components/Effect';
 import { UseMemo } from './components/UseMemo';
 import { UseRef } from './components/UseRef';
 import { HookPerso } from './components/HookPerso';
+import { Counter } from './components/Counter';
+import { Memoisation } from './components/Memoisation';
+import { Portal } from './components/Portal';
 
 function App() {
   return (
@@ -85,12 +87,30 @@ function Content() {
   }
 
   let useHookPersoElement;
-  const [displayHookPerso, setDisplayHookPerso] = useState(true);
+  const [displayHookPerso, setDisplayHookPerso] = useState(false);
   const toggleHookPerso = () => {
     setDisplayHookPerso(!displayHookPerso);
   };
   if (displayHookPerso) {
     useHookPersoElement = <HookPerso></HookPerso>;
+  }
+
+  let useMemoisationElement;
+  const [displayMemoisation, setDisplayMemoisation] = useState(false);
+  const toggleMemoisation = () => {
+    setDisplayMemoisation(!displayMemoisation);
+  };
+  if (displayMemoisation) {
+    useMemoisationElement = <Memoisation></Memoisation>;
+  }
+
+  let portalElement;
+  const [displayPortal, setDisplayPortal] = useState(true);
+  const togglePortal = () => {
+    setDisplayPortal(!displayPortal);
+  };
+  if (displayPortal) {
+    portalElement = <Portal></Portal>;
   }
 
   return (
@@ -127,6 +147,14 @@ function Content() {
         Display Hook Perso
       </button>
 
+      <button type="button" onClick={toggleMemoisation}>
+        Display Memoisation
+      </button>
+
+      <button type="button" onClick={togglePortal}>
+        Display Portail
+      </button>
+
       <br />
       <br />
       {counterElement}
@@ -137,6 +165,8 @@ function Content() {
       {useMemoElement}
       {useRefElement}
       {useHookPersoElement}
+      {useMemoisationElement}
+      {portalElement}
     </>
   );
 }
