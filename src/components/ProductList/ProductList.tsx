@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Input } from '../ProductList/forms/Input';
+import Input from '../ProductList/forms/Input';
 import { CustomCheckbox } from '../ProductList/forms/CustomCheckbox';
 import { ProductCategoryRow } from '../ProductList/products/ProductCategoryRow';
 import { ProductRow } from '../ProductList/products/ProductRow';

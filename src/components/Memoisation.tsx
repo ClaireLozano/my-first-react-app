@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo, useRef, useState } from 'react';
-import { Input } from './ProductList/forms/Input';
+import Input from './ProductList/forms/Input';
 
 // Regarder le "profiler" dans devtools, pour regarder les perfs de l'appli
 

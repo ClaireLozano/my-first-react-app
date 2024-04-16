@@ -1,6 +1,6 @@
 import { useId } from 'react';
 
-export function Input({ placeholder, value, onChange, label }: any): JSX.Element {
+export default function Input({ placeholder, value, onChange, label }: any): JSX.Element {
   const id = useId();
 
   return (

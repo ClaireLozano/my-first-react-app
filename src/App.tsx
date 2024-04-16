@@ -12,6 +12,10 @@ import { HookPerso } from './components/HookPerso';
 import { Counter } from './components/Counter';
 import { Memoisation } from './components/Memoisation';
 import { Portal } from './components/Portal';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { Lazy } from './components/Lazy';
+import { UseReducer } from './components/UseReducer';
+import { UseContext } from './components/UseContext';
 
 function App() {
   return (
@@ -105,12 +109,48 @@ function Content() {
   }
 
   let portalElement;
-  const [displayPortal, setDisplayPortal] = useState(true);
+  const [displayPortal, setDisplayPortal] = useState(false);
   const togglePortal = () => {
     setDisplayPortal(!displayPortal);
   };
   if (displayPortal) {
     portalElement = <Portal></Portal>;
+  }
+
+  let errorBoundaryElement;
+  const [displayErrorBoundary, setDisplayErrorBoundary] = useState(false);
+  const toggleErrorBoundary = () => {
+    setDisplayErrorBoundary(!displayErrorBoundary);
+  };
+  if (displayErrorBoundary) {
+    portalElement = <ErrorBoundary></ErrorBoundary>;
+  }
+
+  let lazyElement;
+  const [displayLazy, setDisplayLazy] = useState(false);
+  const toggleLazy = () => {
+    setDisplayLazy(!displayLazy);
+  };
+  if (displayLazy) {
+    lazyElement = <Lazy></Lazy>;
+  }
+
+  let useReducerElement;
+  const [displayUseReducer, setUseReducer] = useState(false);
+  const toggleUseReducer = () => {
+    setUseReducer(!displayUseReducer);
+  };
+  if (displayUseReducer) {
+    useReducerElement = <UseReducer></UseReducer>;
+  }
+
+  let useContextElement;
+  const [displayUseContext, setUseContext] = useState(true);
+  const toggleUseContext = () => {
+    setUseContext(!displayUseContext);
+  };
+  if (displayUseContext) {
+    useContextElement = <UseContext></UseContext>;
   }
 
   return (
@@ -155,6 +195,22 @@ function Content() {
         Display Portail
       </button>
 
+      <button type="button" onClick={toggleErrorBoundary}>
+        Display ErrorBoundary
+      </button>
+
+      <button type="button" onClick={toggleLazy}>
+        Display Lazy
+      </button>
+
+      <button type="button" onClick={toggleUseReducer}>
+        Display UseReducer
+      </button>
+
+      <button type="button" onClick={toggleUseContext}>
+        Display UseContext
+      </button>
+
       <br />
       <br />
       {counterElement}
@@ -167,6 +223,10 @@ function Content() {
       {useHookPersoElement}
       {useMemoisationElement}
       {portalElement}
+      {errorBoundaryElement}
+      {lazyElement}
+      {useReducerElement}
+      {useContextElement}
     </>
   );
 }

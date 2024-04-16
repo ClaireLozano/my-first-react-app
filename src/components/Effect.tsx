@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Input } from './ProductList/forms/Input';
+import Input from './ProductList/forms/Input';
 
 export function Effect() {
   return (
