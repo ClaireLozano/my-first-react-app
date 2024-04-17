@@ -1,7 +1,13 @@
 import { useId } from 'react';
+import { useToggle } from '../../../hooks/useToggle';
 
 export default function Input({ placeholder, value, onChange, label }: any): JSX.Element {
   const id = useId();
+  const [show, toggle] = useToggle(true);
+
+  if (!show) {
+    return <></>;
+  }
 
   return (
     <>
@@ -14,6 +20,7 @@ export default function Input({ placeholder, value, onChange, label }: any): JSX
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
       />
+      <button onClick={toggle}>Fermer</button>
     </>
   );
 }
