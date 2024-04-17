@@ -20,7 +20,7 @@ export function Memoisation() {
   }, []);
 
   // Pour aller un peu plus vite que le useMemo, on peut utiliser le callback
-  const handleClick2 = useCallback(() => {
+  useCallback(() => {
     console.log('Hello 2');
   }, []);
 
@@ -28,7 +28,7 @@ export function Memoisation() {
   nameRef.current = name;
 
   // Ne sera pas réexecuter à chaque fois que le name change vu qu'on a une ref
-  const handleClick3 = useCallback(() => {
+  useCallback(() => {
     console.log(name);
   }, []); // pas besoin de mettre le name ici vu que la ref de name de change jamais
 
@@ -42,7 +42,8 @@ export function Memoisation() {
 
 // La memoisation consiste à sauvegarder le retour de la fonction dans une variable
 // Si jamais on lui passe le "name" dans la fonction Info, on perd l'effet de la memoisation (car les params sont différents)
-const InfoMemo = memo(function Info(props: { onClick }) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const InfoMemo = memo(function Info(_props: { onClick: any }) {
   // Imaginons que cette fonction soit longue à executer ...
   console.log('log');
   return <>Info</>;

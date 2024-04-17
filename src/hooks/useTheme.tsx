@@ -13,7 +13,7 @@ export function useTheme() {
   };
 }
 
-export function ThemeContextProvider({ children }) {
+export function ThemeContextProvider({ children }: any) {
   const [themeValue, setThemeValue] = useState('light');
   const toggleThemeValue = () => {
     setThemeValue(themeValue === 'light' ? 'dark' : 'light');

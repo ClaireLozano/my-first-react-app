@@ -12,7 +12,6 @@ import { HookPerso } from './components/HookPerso';
 import { Counter } from './components/Counter';
 import { Memoisation } from './components/Memoisation';
 import { Portal } from './components/Portal';
-import { ErrorBoundary } from './components/ErrorBoundary';
 import { Lazy } from './components/Lazy';
 import { UseReducer } from './components/UseReducer';
 import { UseContext } from './components/UseContext';
@@ -117,14 +116,14 @@ function Content() {
     portalElement = <Portal></Portal>;
   }
 
-  let errorBoundaryElement;
+  /*let errorBoundaryElement;
   const [displayErrorBoundary, setDisplayErrorBoundary] = useState(false);
   const toggleErrorBoundary = () => {
     setDisplayErrorBoundary(!displayErrorBoundary);
   };
   if (displayErrorBoundary) {
     portalElement = <ErrorBoundary></ErrorBoundary>;
-  }
+  }*/
 
   let lazyElement;
   const [displayLazy, setDisplayLazy] = useState(false);
@@ -195,10 +194,6 @@ function Content() {
         Display Portail
       </button>
 
-      <button type="button" onClick={toggleErrorBoundary}>
-        Display ErrorBoundary
-      </button>
-
       <button type="button" onClick={toggleLazy}>
         Display Lazy
       </button>
@@ -223,7 +218,6 @@ function Content() {
       {useHookPersoElement}
       {useMemoisationElement}
       {portalElement}
-      {errorBoundaryElement}
       {lazyElement}
       {useReducerElement}
       {useContextElement}
