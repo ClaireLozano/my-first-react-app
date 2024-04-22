@@ -15,6 +15,7 @@ import { Portal } from './components/Portal';
 import { Lazy } from './components/Lazy';
 import { UseReducer } from './components/UseReducer';
 import { UseContext } from './components/UseContext';
+import { RouterComponent } from './components/RouterComponent';
 
 function App() {
   return (
@@ -144,12 +145,21 @@ function Content() {
   }
 
   let useContextElement;
-  const [displayUseContext, setUseContext] = useState(true);
+  const [displayUseContext, setUseContext] = useState(false);
   const toggleUseContext = () => {
     setUseContext(!displayUseContext);
   };
   if (displayUseContext) {
     useContextElement = <UseContext></UseContext>;
+  }
+
+  let routerElement;
+  const [displayRouter, setRouter] = useState(true);
+  const toggleRouter = () => {
+    setRouter(!displayRouter);
+  };
+  if (displayRouter) {
+    routerElement = <RouterComponent></RouterComponent>;
   }
 
   return (
@@ -206,6 +216,10 @@ function Content() {
         Display UseContext
       </button>
 
+      <button type="button" onClick={toggleRouter}>
+        Display Router
+      </button>
+
       <br />
       <br />
       {counterElement}
@@ -221,6 +235,7 @@ function Content() {
       {lazyElement}
       {useReducerElement}
       {useContextElement}
+      {routerElement}
     </>
   );
 }
